@@ -25,6 +25,31 @@ retrieval quality affect downstream LLM reasoning?
 - Tokenization/morphology probe for Turkish suffix-like patterns
 - Docker-ready deployment skeleton
 
+## Live Deployment
+
+The app is deployed on Render as a Docker-backed web service.
+
+- Frontend experiment console: served from `/`
+- Backend API: served from `/api`
+- Interactive API docs: served from `/docs`
+- Health check: served from `/api/health`
+
+Render builds the repository's `Dockerfile` and starts the FastAPI app with
+Uvicorn. The container binds to Render's `PORT` environment variable in
+production and falls back to port `8000` locally.
+
+Current deployment environment:
+
+```text
+APP_ENV=production
+EMBEDDING_BACKEND=hashing
+VECTOR_BACKEND=memory
+```
+
+Because the current vector store is in memory, documents indexed through the web
+UI are temporary. They may disappear when the Render service restarts or wakes
+from inactivity. Persistent storage is planned for later experiments.
+
 ## Quick Start
 
 ```bash
@@ -92,4 +117,3 @@ Install ML dependencies first:
 ```bash
 pip install -e ".[ml,dev]"
 ```
-
