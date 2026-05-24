@@ -81,6 +81,11 @@ docker compose up --build
 - `POST /api/experiments/tokenization`: inspect token-level properties
 - `GET /api/health`: service health check
 
+## Documentation
+
+- [Current app snapshot](docs/current_app_snapshot.md): implementation notes for
+  the current prototype state.
+
 ## Experiment Roadmap
 
 1. Compare embedding models:
