@@ -1,0 +1,17 @@
+[
+  {
+    "case_id": "cross_lingual_tr_morphology",
+    "query": "Why can Turkish morphology make retrieval difficult?",
+    "language": "en",
+    "relevant_doc_ids": ["tr_morphology_001"],
+    "notes": "English query targeting Turkish morphology document."
+  },
+  {
+    "case_id": "tr_query_rag",
+    "query": "Üretimden önce belge getirme neden önemlidir?",
+    "language": "tr",
+    "relevant_doc_ids": ["en_retrieval_001"],
+    "notes": "Turkish query targeting English RAG document."
+  }
+]
+

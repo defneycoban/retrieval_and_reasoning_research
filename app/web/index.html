@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Multilingual RAG Research</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="intro">
+        <p class="eyebrow">Retrieval and reasoning research console</p>
+        <h1>Multilingual RAG experiments for English and Turkish</h1>
+        <p>
+          Ingest documents, ask cross-lingual questions, inspect retrieved context, and
+          start measuring how morphology and language structure affect retrieval quality.
+        </p>
+      </section>
+
+      <section class="workspace">
+        <form id="ingest-form" class="panel">
+          <h2>Document Ingestion</h2>
+          <label>
+            Document ID
+            <input name="doc_id" value="tr_agglutination_001" required />
+          </label>
+          <label>
+            Language
+            <select name="language">
+              <option value="tr">Turkish</option>
+              <option value="en">English</option>
+            </select>
+          </label>
+          <label>
+            Title
+            <input name="title" value="Turkish morphology note" />
+          </label>
+          <label>
+            Text
+            <textarea name="text" rows="8" required>Türkçe, eklemeli bir dildir. Sözcükler köklere eklenen eklerle yeni anlamlar ve dilbilgisel işlevler kazanır. Bu özellik, anlamsal arama sistemlerinde biçimbirimsel çeşitliliği önemli hale getirir.</textarea>
+          </label>
+          <button type="submit">Index Document</button>
+          <output id="ingest-result"></output>
+        </form>
+
+        <form id="query-form" class="panel">
+          <h2>Cross-Lingual Query</h2>
+          <label>
+            Query Language
+            <select name="language">
+              <option value="en">English</option>
+              <option value="tr">Turkish</option>
+            </select>
+          </label>
+          <label>
+            Question
+            <textarea name="query" rows="5" required>Why is Turkish morphology challenging for semantic retrieval?</textarea>
+          </label>
+          <label>
+            Top K
+            <input name="top_k" type="number" value="3" min="1" max="20" />
+          </label>
+          <button type="submit">Run Query</button>
+          <output id="query-result"></output>
+        </form>
+      </section>
+
+      <section class="panel">
+        <h2>Tokenization Probe</h2>
+        <form id="token-form" class="inline-form">
+          <textarea name="text" rows="4">evlerimizden, kitaplarımızdaki, araştırmacılar</textarea>
+          <button type="submit">Analyze</button>
+        </form>
+        <output id="token-result"></output>
+      </section>
+    </main>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
+

@@ -1,0 +1,4 @@
+{"doc_id":"tr_morphology_001","language":"tr","title":"Turkish morphology","text":"Türkçe eklemeli bir dildir. Sözcükler köklere getirilen eklerle yeni anlamlar, durum bilgisi ve kişi bilgisi kazanır. Bu nedenle aynı kökten türeyen birçok yüzey biçimi anlamsal arama sistemlerinde farklı token dizileri oluşturabilir."}
+{"doc_id":"en_retrieval_001","language":"en","title":"Retrieval augmented generation","text":"Retrieval augmented generation systems retrieve relevant documents before producing an answer. Retrieval quality strongly affects reasoning because missing or irrelevant context can cause unsupported claims."}
+{"doc_id":"tr_retrieval_001","language":"tr","title":"Anlamsal arama","text":"Anlamsal arama, sorgu ile belge arasındaki anlam ilişkisini yüzeysel kelime eşleşmesinden daha geniş biçimde modellemeye çalışır. Çok dilli sistemlerde sorgu ve belge farklı dillerde olabilir."}
+
