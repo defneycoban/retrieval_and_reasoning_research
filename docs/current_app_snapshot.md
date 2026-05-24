@@ -14,7 +14,7 @@ research. It lets a user:
 - ingest English or Turkish documents,
 - query the indexed documents,
 - inspect retrieved chunks and similarity scores,
-- run a simple tokenization/morphology probe,
+- run a (very) simple tokenization/morphology probe,
 - and access the system through a browser-hosted research console.
 
 The app is deployed on Render as a Docker-backed FastAPI service. The frontend is
@@ -437,7 +437,7 @@ fall back to port `8000`.
 ## Good Next Steps
 
 - Add persistent vector storage with Qdrant, Chroma, Postgres/pgvector, or
-  another durable backend.
+  another durable backend?? maybe not urgent
 - Add a real multilingual embedding model.
 - Add OpenAI or another LLM provider for context-grounded reasoning.
 - Add dataset IDs so different users or experiments do not share one global
