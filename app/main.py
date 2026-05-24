@@ -20,3 +20,7 @@ app.mount("/static", StaticFiles(directory="app/web"), name="static")
 def index() -> FileResponse:
     return FileResponse("app/web/index.html")
 
+
+@app.head("/", include_in_schema=False)
+def head_index() -> None:
+    return None
