@@ -1,12 +1,12 @@
 :root {
   color-scheme: light;
   --ink: #17211b;
-  --muted: #5c6a61;
-  --line: #d8e0da;
+  --muted: #6d5a7d;
+  --line: #eadcf8;
   --surface: #ffffff;
   --band: #f7f1ff;
-  --accent: #7c3aed;
-  --accent-strong: #5b21b6;
+  --accent: #581c87;
+  --accent-strong: #3b0764;
 }
 
 * {
