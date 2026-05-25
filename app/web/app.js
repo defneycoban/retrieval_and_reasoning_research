@@ -53,6 +53,34 @@ document.querySelector("#query-form").addEventListener("submit", async (event) =
   }
 });
 
+document.querySelector("#evaluation-form").addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const form = new FormData(event.currentTarget);
+  const output = document.querySelector("#evaluation-result");
+  output.value = "Evaluating...";
+
+  try {
+    const cases = JSON.parse(form.get("cases"));
+    if (!Array.isArray(cases)) {
+      throw new Error("Evaluation cases must be a JSON array.");
+    }
+
+    const result = await postJson("/api/evaluate/retrieval", {
+      cases,
+      top_k: Number(form.get("top_k")),
+    });
+    output.value = [
+      `recall@k: ${result.recall_at_k}`,
+      `mean reciprocal rank: ${result.mean_reciprocal_rank}`,
+      `cases evaluated: ${result.cases_evaluated}`,
+      "",
+      pretty(result),
+    ].join("\n");
+  } catch (error) {
+    output.value = `Error: ${error.message}`;
+  }
+});
+
 document.querySelector("#token-form").addEventListener("submit", async (event) => {
   event.preventDefault();
   const form = new FormData(event.currentTarget);
@@ -67,4 +95,3 @@ document.querySelector("#token-form").addEventListener("submit", async (event) =
     output.value = `Error: ${error.message}`;
   }
 });
-

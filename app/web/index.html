@@ -17,6 +17,38 @@
         </p>
       </section>
 
+      <section class="experiment-controls panel">
+        <div>
+          <h2>Experiment Settings</h2>
+          <p>
+            Current run uses the deterministic hashing baseline and word-window chunking.
+            Other baselines are shown here as planned comparison points.
+          </p>
+        </div>
+        <label>
+          Embedding Model
+          <select name="embedding_backend" aria-describedby="embedding-status">
+            <option value="hashing">Hashing baseline</option>
+            <option value="sentence-transformers" disabled>
+              Multilingual Sentence Transformers (not implemented yet)
+            </option>
+            <option value="openai" disabled>OpenAI embeddings (not implemented yet)</option>
+          </select>
+          <span id="embedding-status" class="control-note">Active: hashing baseline</span>
+        </label>
+        <label>
+          Chunking Strategy
+          <select name="chunking_strategy" aria-describedby="chunking-status">
+            <option value="word">Word chunking</option>
+            <option value="sentence" disabled>Sentence chunking (not implemented yet)</option>
+            <option value="morphology" disabled>
+              Morphology-aware segmentation (not implemented yet)
+            </option>
+          </select>
+          <span id="chunking-status" class="control-note">Active: word chunking</span>
+        </label>
+      </section>
+
       <section class="workspace">
         <form id="ingest-form" class="panel">
           <h2>Document Ingestion</h2>
@@ -66,6 +98,30 @@
       </section>
 
       <section class="panel">
+        <h2>Retrieval Evaluation</h2>
+        <form id="evaluation-form" class="evaluation-form">
+          <label>
+            Evaluation Cases JSON
+            <textarea name="cases" rows="9" required>[
+  {
+    "case_id": "en_query_tr_morphology",
+    "query": "Why can Turkish morphology make retrieval difficult?",
+    "language": "en",
+    "relevant_doc_ids": ["tr_agglutination_001"],
+    "notes": "English query targeting Turkish morphology document."
+  }
+]</textarea>
+          </label>
+          <label>
+            Top K
+            <input name="top_k" type="number" value="3" min="1" max="20" />
+          </label>
+          <button type="submit">Run Evaluation</button>
+        </form>
+        <output id="evaluation-result"></output>
+      </section>
+
+      <section class="panel">
         <h2>Tokenization Probe</h2>
         <form id="token-form" class="inline-form">
           <textarea name="text" rows="4">evlerimizden, kitaplarımızdaki, araştırmacılar</textarea>
@@ -74,6 +130,6 @@
         <output id="token-result"></output>
       </section>
     </main>
-    <script src="/static/app.js"></script>
+    <script src="/static/app.js?v=20260524-evaluation"></script>
   </body>
 </html>

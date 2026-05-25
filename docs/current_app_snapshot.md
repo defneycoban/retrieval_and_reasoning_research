@@ -61,13 +61,21 @@ GET /
 
 The frontend currently has three main panels:
 
+- Experiment Settings
 - Document Ingestion
 - Cross-Lingual Query
+- Retrieval Evaluation
 - Tokenization Probe
 
 The JavaScript file `app/web/app.js` listens for form submissions, converts form
 values into JSON payloads, sends them to the backend with `fetch`, and prints the
 JSON response into the page.
+
+The Experiment Settings panel shows future comparison points for embeddings and
+chunking strategies. At this stage, only the hashing embedding baseline and word
+chunking are active. Multilingual Sentence Transformers, OpenAI embeddings,
+sentence chunking, and morphology-aware segmentation are visible in the UI as
+disabled options labeled "not implemented yet."
 
 There is no frontend framework yet. The app does not currently use React, Next.js,
 Vue, Svelte, or client-side routing.
@@ -369,12 +377,15 @@ mean_reciprocal_rank
 cases_evaluated
 ```
 
-There is no frontend panel for this endpoint yet, but it is available through the
-API and the interactive docs at:
+It is also available through the interactive API docs at:
 
 ```text
 /docs
 ```
+
+The frontend includes a Retrieval Evaluation panel that accepts a JSON array of
+evaluation cases and a `top_k` value, calls `POST /api/evaluate/retrieval`, and
+displays `recall_at_k`, `mean_reciprocal_rank`, and `cases_evaluated`.
 
 ## Configuration
 
@@ -445,4 +456,3 @@ fall back to port `8000`.
 - Add an evaluation dashboard.
 - Add saved experiment runs and downloadable results.
 - Add authentication or a read-only public demo mode.
-

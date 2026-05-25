@@ -69,6 +69,20 @@ h2 {
   margin-bottom: 16px;
 }
 
+.experiment-controls {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(220px, 0.8fr) minmax(220px, 0.8fr);
+  gap: 16px;
+  align-items: end;
+  margin-bottom: 16px;
+}
+
+.experiment-controls p {
+  margin: -8px 0 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
 .panel {
   padding: 18px;
   background: var(--surface);
@@ -95,6 +109,17 @@ textarea {
   color: var(--ink);
   background: #fbfcfa;
   font: inherit;
+}
+
+select:disabled,
+option:disabled {
+  color: #8c7d96;
+}
+
+.control-note {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 500;
 }
 
 textarea {
@@ -133,8 +158,17 @@ output {
   align-items: end;
 }
 
+.evaluation-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(110px, 140px) auto;
+  gap: 12px;
+  align-items: end;
+}
+
 @media (max-width: 760px) {
+  .experiment-controls,
   .workspace,
+  .evaluation-form,
   .inline-form {
     grid-template-columns: 1fr;
   }
